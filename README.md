@@ -8,7 +8,7 @@ http://www.sopds.ru
 
 # Installation
 
-Pull the latest version of the image from the docker index. This is the recommended method of installation as it is easier to update image in the future. These builds are performed by the **Docker Trusted Build** service.
+Pull the latest version of the image from the docker.
 
 ```
 docker pull zveronline/docker-sopds:latest
