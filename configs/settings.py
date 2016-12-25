@@ -152,7 +152,7 @@ SOPDS_ROOT_LIB = '/library'
 #SOPDS_ROOT_LIB = os.path.join(BASE_DIR,'opds_catalog\\tests\\data\\')
 #SOPDS_ROOT_LIB = "d:\\BOOKS\\"
 
-SOPDS_AUTH = True
+SOPDS_AUTH = False
 SOPDS_SCAN_SHED_MIN ='0'
 SOPDS_SCAN_SHED_HOUR ='0,12'
 SOPDS_INPX_ENABLE = False

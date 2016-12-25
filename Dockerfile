@@ -18,4 +18,3 @@ VOLUME /library
 EXPOSE 8001
 
 ENTRYPOINT ["/start.sh"]
-#CMD ["/bin/bash", "/start.sh"]
