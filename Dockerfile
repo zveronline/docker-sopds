@@ -3,7 +3,7 @@ MAINTAINER zveronline@zveronline.ru
 
 ENV SOPDS_VERSION=0.38
 
-RUN dnf install python3 unzip
+RUN dnf install -y python3 unzip
 ADD https://github.com/mitshel/sopds/archive/v0.38.zip /sopds.zip
 RUN unzip sopds.zip && rm sopds.zip && mv sopds-0.38 sopds
 ADD ./scripts/start.sh /start.sh
