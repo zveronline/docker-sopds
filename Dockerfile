@@ -10,7 +10,7 @@ ADD ./scripts/start.sh /start.sh
 ADD ./configs/settings.py /sopds/sopds/settings.py
 RUN chmod +x /start.sh
 WORKDIR /sopds
-RUN pip3 install -r requirements.txt
+RUN pip install --upgrade pip && pip3 install -r requirements.txt
 RUN python3 manage.py migrate
 RUN python3 manage.py sopds_util clear
 
