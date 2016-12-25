@@ -16,4 +16,6 @@ RUN python3 manage.py sopds_util clear
 
 VOLUME /library
 EXPOSE 8001
-CMD ["/bin/bash", "/start.sh"]
+
+ENTRYPOINT ["/start.sh"]
+#CMD ["/bin/bash", "/start.sh"]
