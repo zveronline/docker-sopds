@@ -11,13 +11,13 @@ http://www.sopds.ru
 Pull the latest version of the image from the docker.
 
 ```
-docker pull zveronline/docker-sopds:latest
+docker pull zveronline/docker-sopds
 ```
 
 Alternately you can build the image yourself.
 
 ```
-docker build -t zveronline/sopds:latest https://git.zveronline.ru/zveronline/docker-sopds.git
+docker build -t zveronline/sopds https://git.zveronline.ru/zveronline/docker-sopds.git
 ```
 
 # Quick Start
@@ -28,7 +28,7 @@ Run the image
 docker run --name sopds -d \
    --volume /path/to/library:/library:ro \
    --publish 8081:8001 \
-   zveronline/sopds:latest
+   zveronline/sopds
 ```
 
 This will start the sopds server and you should now be able to browse the content on port 8081.
