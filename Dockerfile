@@ -1,11 +1,9 @@
 FROM fedora:25
 MAINTAINER zveronline@zveronline.ru
 
-ENV SOPDS_VERSION=0.38
-
 RUN dnf install -y python3 unzip
-ADD https://github.com/mitshel/sopds/archive/v0.38.zip /sopds.zip
-RUN unzip sopds.zip && rm sopds.zip && mv sopds-0.38 sopds
+ADD https://github.com/mitshel/sopds/archive/master.zip /sopds.zip
+RUN unzip sopds.zip && rm sopds.zip && mv sopds-master sopds
 ADD ./configs/settings.py /sopds/sopds/settings.py
 WORKDIR /sopds
 RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
