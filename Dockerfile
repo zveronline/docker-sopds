@@ -1,7 +1,7 @@
 FROM fedora:25
 MAINTAINER zveronline@zveronline.ru
 
-RUN dnf install -y python3 unzip
+RUN dnf update -y && dnf install -y python3 unzip
 ADD https://github.com/mitshel/sopds/archive/master.zip /sopds.zip
 RUN unzip sopds.zip && rm sopds.zip && mv sopds-master sopds
 ADD ./configs/settings.py /sopds/sopds/settings.py
