@@ -29,14 +29,14 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
+    'django.contrib.auth',    
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.messages',    
     'opds_catalog',
-    'sopds_web_backend',
+    'sopds_web_backend',    
+    'django.contrib.admin',   
+    'django.contrib.staticfiles',     
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -72,7 +72,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'sopds.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -152,10 +151,10 @@ SOPDS_ROOT_LIB = '/library'
 #SOPDS_ROOT_LIB = os.path.join(BASE_DIR,'opds_catalog\\tests\\data\\')
 #SOPDS_ROOT_LIB = "d:\\BOOKS\\"
 
-SOPDS_AUTH = False
+SOPDS_AUTH = True
 SOPDS_SCAN_SHED_MIN ='0'
-SOPDS_SCAN_SHED_HOUR ='0,12'
-SOPDS_INPX_ENABLE = False
+SOPDS_SCAN_SHED_HOUR ='0'
+SOPDS_INPX_ENABLE = True
 
 #Конвертеры EPUB и MOBI
 #SOPDS_FB2TOEPUB = os.path.join(BASE_DIR,'convert/fb2toepub/unix_dist/fb2toepub')
