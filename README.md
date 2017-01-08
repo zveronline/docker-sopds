@@ -33,10 +33,16 @@ docker run --name sopds -d \
 
 This will start the sopds server and you should now be able to browse the content on port 8081.
 
+# Create superuser
+
+```bash
+docker exec -ti sopds bash \
+python3 manage.py createsuperuser
+```
 
 # Scan library
 
 ```bash
-docker exec -ti sopds bash
+docker exec -ti sopds bash \
 python3 manage.py sopds_scanner scan --daemon
 ```
