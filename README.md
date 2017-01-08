@@ -44,5 +44,5 @@ python3 manage.py createsuperuser
 
 ```bash
 docker exec -ti sopds bash \
-python3 manage.py sopds_scanner scan --daemon
+python3 manage.py sopds_util setconf SOPDS_SCAN_START_DIRECTLY True
 ```
