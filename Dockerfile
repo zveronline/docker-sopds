@@ -12,6 +12,7 @@ RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
 RUN python3 manage.py migrate
 RUN python3 manage.py sopds_util clear
 RUN python3 manage.py sopds_util setconf SOPDS_ROOT_LIB '/library'
+RUN python3 manage.py sopds_util setconf SOPDS_INPX_ENABLE 'True'
 ADD ./scripts/start.sh /start.sh
 RUN chmod +x /start.sh
 
