@@ -36,13 +36,13 @@ This will start the sopds server and you should now be able to browse the conten
 # Create superuser
 
 ```bash
-docker exec -ti sopds bash \
+docker exec -ti sopds bash
 python3 manage.py createsuperuser
 ```
 
 # Scan library
 
 ```bash
-docker exec -ti sopds bash \
+docker exec -ti sopds bash
 python3 manage.py sopds_util setconf SOPDS_SCAN_START_DIRECTLY True
 ```
