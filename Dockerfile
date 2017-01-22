@@ -5,7 +5,7 @@ ENV VERSION 0.41
 
 RUN dnf update -y && dnf install -y python3 unzip nano
 ADD https://github.com/mitshel/sopds/archive/v0.41.zip /sopds.zip
-RUN unzip sopds.zip && rm sopds.zip && mv sopds-master sopds
+RUN unzip sopds.zip && rm sopds.zip && mv sopds-* sopds
 #ADD ./configs/settings.py /sopds/sopds/settings.py
 WORKDIR /sopds
 RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
