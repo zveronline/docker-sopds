@@ -17,7 +17,7 @@ docker pull zveronline/docker-sopds
 Alternately you can build the image yourself.
 
 ```
-docker build -t zveronline/sopds https://git.zveronline.ru/zveronline/docker-sopds.git
+docker build -t zveronline/sopds https://github.com/zveronline/docker-sopds.git
 ```
 
 # Quick Start
