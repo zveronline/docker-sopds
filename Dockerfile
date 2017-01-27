@@ -3,7 +3,7 @@ MAINTAINER zveronline@zveronline.ru
 
 ENV VERSION 0.41
 
-RUN dnf update -y && dnf install -y python3 unzip nano
+RUN dnf update -y && dnf install -y python3 unzip
 ADD https://github.com/mitshel/sopds/archive/v0.41.zip /sopds.zip
 RUN unzip sopds.zip && rm sopds.zip && mv sopds-* sopds
 #ADD ./configs/settings.py /sopds/sopds/settings.py
