@@ -14,4 +14,5 @@ fi
 su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data -l logfile start"
 
 cd /sopds
+python3 manage.py migrate
 python3 manage.py sopds_server start & python3 manage.py sopds_scanner start
