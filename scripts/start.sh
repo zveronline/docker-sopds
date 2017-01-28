@@ -15,4 +15,7 @@ su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data -l logfile start"
 
 cd /sopds
 python3 manage.py migrate
+python3 manage.py sopds_util setconf SOPDS_ROOT_LIB '/library'
+python3 manage.py sopds_util setconf SOPDS_INPX_ENABLE 'True'
+python3 manage.py sopds_util setconf SOPDS_LANGUAGE ru-RU
 python3 manage.py sopds_server start & python3 manage.py sopds_scanner start
