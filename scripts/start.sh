@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if [ ! -f /var/lib/pgsql/data/base ]; then
+chown -R postgres /var/lib/pgsql
 su postgres -c "pg_ctl -D /var/lib/pgsql/data initdb"
 su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data -l logfile start"
 sleep 30
