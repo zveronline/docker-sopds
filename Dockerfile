@@ -17,7 +17,7 @@ RUN python3 manage.py sopds_util setconf SOPDS_LANGUAGE ru-RU
 ADD ./scripts/start.sh /start.sh
 RUN chmod +x /start.sh
 
-VOLUME /var/lib/postgresql
+VOLUME /var/lib/pgsql
 EXPOSE 8001
 
 ENTRYPOINT ["/start.sh"]
