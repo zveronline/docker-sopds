@@ -1,18 +1,17 @@
 #!/bin/bash
 
 if [ ! -f /var/lib/pgsql/data/base ]; then
-chown -R postgres /var/lib/pgsql
-su postgres -c "pg_ctl -D /var/lib/pgsql/data initdb"
-su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data -l logfile start"
+chown -R postgres:postgres /var/lib/pgsql
+su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data initdb"
+su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data -l /var/lib/pgsql/data/pg.log start"
 sleep 30
 psql -U postgres -c "create database sopds"
 psql -U postgres -c "create user sopds with password 'sopds'"
 psql -U postgres -c "grant all privileges on database sopds to sopds"
-su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data -l logfile stop"
-sleep 50
+su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data -l /var/lib/pgsql/data/pg.log stop"
+sleep 30
 fi
-
-su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data -l logfile start"
+su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data -l /var/lib/pgsql/data/pg.log start"
 
 cd /sopds
 python3 manage.py migrate
