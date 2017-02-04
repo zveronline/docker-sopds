@@ -21,4 +21,6 @@ python3 manage.py migrate
 python3 manage.py sopds_util setconf SOPDS_ROOT_LIB $SOPDS_ROOT_LIB
 python3 manage.py sopds_util setconf SOPDS_INPX_ENABLE $SOPDS_INPX_ENABLE
 python3 manage.py sopds_util setconf SOPDS_LANGUAGE $SOPDS_LANGUAGE
+python3 manage.py sopds_util setconf SOPDS_AUTH $SOPDS_AUTH
+python3 manage.py sopds_util setconf SOPDS_SCAN_SHED_HOUR $SOPDS_SCAN_SHED_HOUR
 python3 manage.py sopds_server start & python3 manage.py sopds_scanner start
