@@ -9,6 +9,8 @@ sleep 10
 psql -U postgres -c "create database sopds"
 psql -U postgres -c "create user sopds with password 'sopds'"
 psql -U postgres -c "grant all privileges on database sopds to sopds"
+cd /sopds
+python3 manage.py migrate
 su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data -l /var/lib/pgsql/data/pg.log stop"
 sleep 10
 fi
