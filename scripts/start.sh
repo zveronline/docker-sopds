@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -f /var/lib/pgsql/data/PG_VERSION ] 
+if [[ $EXT_DB == False && ! -f /var/lib/pgsql/data/PG_VERSION ]] 
 then
 chown -R postgres:postgres /var/lib/pgsql
 su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data initdb"
@@ -17,7 +17,7 @@ then
 su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data -l /var/lib/pgsql/data/pg.log start"
 fi
 cd /sopds
-python3 manage.py migrate
+#python3 manage.py migrate
 python3 manage.py sopds_util setconf SOPDS_ROOT_LIB $SOPDS_ROOT_LIB
 python3 manage.py sopds_util setconf SOPDS_INPX_ENABLE $SOPDS_INPX_ENABLE
 python3 manage.py sopds_util setconf SOPDS_LANGUAGE $SOPDS_LANGUAGE
