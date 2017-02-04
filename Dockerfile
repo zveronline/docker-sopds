@@ -1,7 +1,10 @@
 FROM fedora:25
 MAINTAINER zveronline@zveronline.ru
 
-ENV VERSION 0.41
+ENV DB_USER=sopds \
+    DB_NAME=sopds \
+    DB_PASS=sopds \
+    VERSION=0.41
 
 RUN dnf update -y && dnf install -y python3 python3-devel unzip postgresql postgresql-server postgresql-devel gcc redhat-rpm-config
 ADD https://github.com/mitshel/sopds/archive/v0.41.zip /sopds.zip
