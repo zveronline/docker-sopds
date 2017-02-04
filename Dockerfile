@@ -6,6 +6,10 @@ ENV DB_USER=sopds \
     DB_PASS=sopds \
     DB_HOST="" \
     DB_PORT="" \
+    EXT_DB=False \
+    SOPDS_ROOT_LIB="/library" \
+    SOPDS_INPX_ENABLE=True \
+    SOPDS_LANGUAGE=ru-RU \
     VERSION=0.41
 
 RUN dnf update -y && dnf install -y python3 python3-devel unzip postgresql postgresql-server postgresql-devel gcc redhat-rpm-config
