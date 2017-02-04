@@ -12,7 +12,10 @@ psql -U postgres -c "grant all privileges on database sopds to sopds"
 su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data -l /var/lib/pgsql/data/pg.log stop"
 sleep 10
 fi
+if [ $EXT_DB == False ]
+then
 su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data -l /var/lib/pgsql/data/pg.log start"
+fi
 cd /sopds
 python3 manage.py migrate
 python3 manage.py sopds_util setconf SOPDS_ROOT_LIB $SOPDS_ROOT_LIB
