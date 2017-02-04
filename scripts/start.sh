@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -f /var/lib/pgsql/data/PG_VERSION && EXT_DB=False ] 
+if [ ! -f /var/lib/pgsql/data/PG_VERSION && $EXT_DB == False ] 
 then
 chown -R postgres:postgres /var/lib/pgsql
 su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data initdb"
