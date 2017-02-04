@@ -4,6 +4,8 @@ MAINTAINER zveronline@zveronline.ru
 ENV DB_USER=sopds \
     DB_NAME=sopds \
     DB_PASS=sopds \
+    DB_HOST="" \
+    DB_PORT="" \
     VERSION=0.41
 
 RUN dnf update -y && dnf install -y python3 python3-devel unzip postgresql postgresql-server postgresql-devel gcc redhat-rpm-config
