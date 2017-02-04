@@ -98,9 +98,9 @@ WSGI_APPLICATION = 'sopds.wsgi.application'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'sopds',
-    'USER': 'sopds',
-    'PASSWORD': 'sopds',
+    'NAME': os.environ["DB_NAME"],
+    'USER': os.environ["DB_USER"],
+    'PASSWORD': os.environ["DB_PASS"],
     'HOST': '', # Set to empty string for localhost.
     'PORT': '', # Set to empty string for default.
     }
