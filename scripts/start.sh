@@ -19,6 +19,10 @@ then
 su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data -l /var/lib/pgsql/data/pg.log start"
 fi
 cd /sopds
+if [ $MIGRATE == True ]
+then
+python3 manage.py migrate
+fi
 if [ ! -f /var/lib/pgsql/setconf ]
 then
 python3 manage.py sopds_util setconf SOPDS_ROOT_LIB $SOPDS_ROOT_LIB
