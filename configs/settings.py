@@ -78,6 +78,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sopds.wsgi.application'
 
+#### SOPDS DATABASE SETTINGS START ####
+
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
@@ -133,9 +135,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
-
-#LANGUAGE_CODE = 'en-US'
-#LANGUAGE_CODE = 'ru-RU'
     
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'sopds/locale'),
@@ -163,7 +162,7 @@ CONSTANCE_ADDITIONAL_FIELDS = {
 CONSTANCE_CONFIG = OrderedDict([
     ('SOPDS_LANGUAGE', ('en-US',_('Select language'),'language_select')),    
     ('SOPDS_ROOT_LIB', ('books/',_('Absolute path to books collection directory'))),
-    ('SOPDS_BOOK_EXTENSIONS', ('.pdf .djvu .fb2 .epub', _('List of managed book files extensions'))),
+    ('SOPDS_BOOK_EXTENSIONS', ('.pdf .djvu .fb2 .epub .mobi', _('List of managed book files extensions'))),
     ('SOPDS_SCAN_START_DIRECTLY', (False,_('Turn once scanning directly'))),
     
     ('SOPDS_AUTH', (True,_('Enable authentication'))),
@@ -176,7 +175,7 @@ CONSTANCE_CONFIG = OrderedDict([
     ('SOPDS_NOCOVER_PATH', (os.path.join(BASE_DIR,'static/images/nocover.jpg'),_('Path to image file showing for book without embedded cover'))),    
         
     
-    ('SOPDS_FB2PARSE', (True,_('This flag activate extraction metadata from fb2 files'))),
+    ('SOPDS_FB2SAX', (True,_('This flag activate SAX Parser for FB2 instead of lxml.xpath'))),
     ('SOPDS_ZIPSCAN', (True,_('This flag activate zip files scanning'))),
     ('SOPDS_ZIPCODEPAGE', ('cp866',_('Set codepage for filenames inside zipfile'))),
     ('SOPDS_INPX_ENABLE', (False,_('Enables read metadata from inpx-file (and stop scanning deeper from ipx-file place)'))),
@@ -204,7 +203,7 @@ CONSTANCE_CONFIG = OrderedDict([
 CONSTANCE_CONFIG_FIELDSETS = {
     '1. General Options': ('SOPDS_LANGUAGE', 'SOPDS_ROOT_LIB', 'SOPDS_BOOK_EXTENSIONS','SOPDS_SCAN_START_DIRECTLY'),
     '2. Server Options': ('SOPDS_AUTH', 'SOPDS_ALPHABET_MENU', 'SOPDS_DOUBLES_HIDE', 'SOPDS_COVER_SHOW', 'SOPDS_SPLITITEMS', 'SOPDS_MAXITEMS', 'SOPDS_TITLE_AS_FILENAME', 'SOPDS_NOCOVER_PATH'),    
-    '3. Scanner Options': ('SOPDS_FB2PARSE','SOPDS_ZIPSCAN','SOPDS_ZIPCODEPAGE', 'SOPDS_INPX_ENABLE', 'SOPDS_INPX_SKIP_UNCHANGED', 'SOPDS_INPX_TEST_ZIP', 'SOPDS_INPX_TEST_FILES', 'SOPDS_DELETE_LOGICAL'),
+    '3. Scanner Options': ('SOPDS_FB2SAX','SOPDS_ZIPSCAN','SOPDS_ZIPCODEPAGE', 'SOPDS_INPX_ENABLE', 'SOPDS_INPX_SKIP_UNCHANGED', 'SOPDS_INPX_TEST_ZIP', 'SOPDS_INPX_TEST_FILES', 'SOPDS_DELETE_LOGICAL'),
     '4. Scanner Shedule': ('SOPDS_SCAN_SHED_MIN', 'SOPDS_SCAN_SHED_HOUR', 'SOPDS_SCAN_SHED_DAY','SOPDS_SCAN_SHED_DOW'),
     '5. Converters Options': ('SOPDS_FB2TOEPUB', 'SOPDS_FB2TOMOBI', 'SOPDS_TEMP_DIR'),   
     '6. Log & PID Files': ('SOPDS_SERVER_LOG', 'SOPDS_SCANNER_LOG', 'SOPDS_SERVER_PID','SOPDS_SCANNER_PID'),
