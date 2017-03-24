@@ -97,6 +97,17 @@ WSGI_APPLICATION = 'sopds.wsgi.application'
 #    }             
 #}
 
+#DATABASES = {
+#    'default': {
+#    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#    'NAME': 'sopds',
+#    'USER': 'sopds',
+#    'PASSWORD': 'sopds',
+#    'HOST': '', # Set to empty string for localhost.
+#    'PORT': '', # Set to empty string for default.
+#    }
+#}
+
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -114,6 +125,8 @@ DATABASES = {
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #    }         
 #}    
+
+#### SOPDS DATABASE SETTINGS FINISH ####
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
