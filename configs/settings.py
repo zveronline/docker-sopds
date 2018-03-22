@@ -44,19 +44,19 @@ INSTALLED_APPS = [
     'constance',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    #'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'opds_catalog.middleware.SOPDSLocaleMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #'django.middleware.cache.CacheMiddleware',
-    'opds_catalog.middleware.FetchFromCacheMiddleware',
+    #'opds_catalog.middleware.FetchFromCacheMiddleware',
 ]
 
 ROOT_URLCONF = 'sopds.urls'
@@ -176,7 +176,8 @@ CONSTANCE_CONFIG = OrderedDict([
     ('SOPDS_ROOT_LIB', ('books/',_('Absolute path to books collection directory'))),
     ('SOPDS_BOOK_EXTENSIONS', ('.pdf .djvu .fb2 .epub .mobi', _('List of managed book files extensions'))),
     ('SOPDS_SCAN_START_DIRECTLY', (False,_('Turn once scanning directly'))),
-    
+    ('SOPDS_CACHE_TIME', (1200, _('Pages cache time'))),
+
     ('SOPDS_AUTH', (True,_('Enable authentication'))),
     ('SOPDS_ALPHABET_MENU', (True,_('Enable alphabet submenu'))),
     ('SOPDS_DOUBLES_HIDE', (True,_('This flag hides found doublicates'))),
@@ -213,7 +214,7 @@ CONSTANCE_CONFIG = OrderedDict([
 ])
 
 CONSTANCE_CONFIG_FIELDSETS = {
-    '1. General Options': ('SOPDS_LANGUAGE', 'SOPDS_ROOT_LIB', 'SOPDS_BOOK_EXTENSIONS','SOPDS_SCAN_START_DIRECTLY'),
+    '1. General Options': ('SOPDS_LANGUAGE', 'SOPDS_ROOT_LIB', 'SOPDS_BOOK_EXTENSIONS','SOPDS_CACHE_TIME', 'SOPDS_SCAN_START_DIRECTLY'),
     '2. Server Options': ('SOPDS_AUTH', 'SOPDS_ALPHABET_MENU', 'SOPDS_DOUBLES_HIDE', 'SOPDS_COVER_SHOW', 'SOPDS_SPLITITEMS', 'SOPDS_MAXITEMS', 'SOPDS_TITLE_AS_FILENAME', 'SOPDS_NOCOVER_PATH'),
     '3. Scanner Options': ('SOPDS_FB2SAX','SOPDS_ZIPSCAN','SOPDS_ZIPCODEPAGE', 'SOPDS_INPX_ENABLE', 'SOPDS_INPX_SKIP_UNCHANGED', 'SOPDS_INPX_TEST_ZIP', 'SOPDS_INPX_TEST_FILES', 'SOPDS_DELETE_LOGICAL'),
     '4. Scanner Shedule': ('SOPDS_SCAN_SHED_MIN', 'SOPDS_SCAN_SHED_HOUR', 'SOPDS_SCAN_SHED_DAY','SOPDS_SCAN_SHED_DOW'),

@@ -11,10 +11,10 @@ ENV DB_USER=sopds \
     SOPDS_INPX_ENABLE=True \
     SOPDS_LANGUAGE=ru-RU \
     MIGRATE=False \
-    VERSION=0.44
+    VERSION=0.45
 
 RUN dnf update -y && dnf install -y python3 python3-devel unzip postgresql postgresql-server postgresql-devel gcc redhat-rpm-config
-ADD https://github.com/mitshel/sopds/archive/v0.44.zip /sopds.zip
+ADD https://github.com/mitshel/sopds/archive/v0.45.zip /sopds.zip
 RUN unzip sopds.zip && rm sopds.zip && mv sopds-* sopds
 ADD ./configs/settings.py /sopds/sopds/settings.py
 WORKDIR /sopds
