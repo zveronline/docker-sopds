@@ -2,7 +2,9 @@
 
 if [[ $EXT_DB == False && ! -f /var/lib/pgsql/data/PG_VERSION ]] 
 then
+mkdir /run/postgresql
 chown -R postgres:postgres /var/lib/pgsql
+chown -R postgres:postgres /run/postgresql
 su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data initdb"
 su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data -l /var/lib/pgsql/data/pg.log start"
 sleep 10
