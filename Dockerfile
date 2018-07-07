@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine
 MAINTAINER zveronline@zveronline.ru
 
 ENV DB_USER=sopds \
@@ -13,12 +13,15 @@ ENV DB_USER=sopds \
     MIGRATE=False \
     VERSION=0.46
 
-RUN apk add --update bash nano build-base python3-dev libxml2-dev libxslt-dev unzip postgresql postgresql-dev libc-dev jpeg-dev zlib-dev
+RUN apk add --update tzdata bash nano build-base python3-dev libxml2-dev libxslt-dev unzip postgresql postgresql-dev libc-dev jpeg-dev zlib-dev
+RUN cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+RUN echo "Europe/Moscow" > /etc/timezone
+RUN apk del tzdata
 ADD http://www.sopds.ru/images/archives/sopds-v0.46.zip /sopds.zip
 RUN unzip sopds.zip && rm sopds.zip && mv sopds-* sopds
 ADD ./configs/settings.py /sopds/sopds/settings.py
 WORKDIR /sopds
-RUN pip3 install --upgrade pip setuptools psycopg2-binary && pip3 install --upgrade -r requirements.txt
+RUN pip install --upgrade psycopg2-binary && pip install --upgrade -r requirements.txt
 ADD ./scripts/start.sh /start.sh
 RUN chmod +x /start.sh
 
