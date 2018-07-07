@@ -21,7 +21,7 @@ ADD http://www.sopds.ru/images/archives/sopds-v0.46.zip /sopds.zip
 RUN unzip sopds.zip && rm sopds.zip && mv sopds-* sopds
 ADD ./configs/settings.py /sopds/sopds/settings.py
 WORKDIR /sopds
-RUN pip install --upgrade psycopg2-binary && pip install --upgrade -r requirements.txt
+RUN pip3 install --upgrade psycopg2-binary && pip3 install --upgrade -r requirements.txt
 ADD ./scripts/start.sh /start.sh
 RUN chmod +x /start.sh
 
