@@ -20,7 +20,6 @@ RUN apk del tzdata
 ADD http://www.sopds.ru/images/archives/sopds-v0.46.zip /sopds.zip
 RUN unzip sopds.zip && rm sopds.zip && mv sopds-* sopds
 ADD configs/settings.py /sopds/sopds/settings.py
-ADD configs/urls.py /sopds/sopds/urls.py
 WORKDIR /sopds
 RUN pip3 install --upgrade pip setuptools psycopg2-binary && pip3 install --upgrade -r requirements.txt
 ADD scripts/start.sh /start.sh
