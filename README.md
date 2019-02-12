@@ -33,8 +33,6 @@ docker run --name sopds -d \
 
 This will start the sopds server and you should now be able to browse the content on port 8081.
 
-Also you can store database on external storage
-
 ```
 docker run --name sopds -d \
    --volume /path/to/library:/library:ro \
@@ -42,6 +40,22 @@ docker run --name sopds -d \
    --publish 8081:8001 \
    zveronline/sopds
 ```
+
+Also you can store database on external storage.
+
+```
+docker run --name sopds -d \
+   --volume /path/to/library:/library:ro \
+   --env 'DB_USER=sopds' \
+   --env 'DB_NAME=sopds' \
+   --env 'DB_PASS=sopds' \
+   --env 'DB_HOST=""' \
+   --env 'DB_PORT=""' \
+   --env 'EXT_DB=True' \
+   --publish 8081:8001 \
+   zveronline/sopds
+```
+
 
 # Create superuser
 

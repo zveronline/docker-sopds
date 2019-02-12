@@ -13,7 +13,7 @@ ENV DB_USER=sopds \
     MIGRATE=False \
     VERSION=0.46
 
-RUN apk add --update tzdata bash nano build-base libxml2-dev libxslt-dev unzip postgresql postgresql-dev libffi-dev libc-dev jpeg-dev zlib-dev
+RUN apk add --no-cache -U tzdata bash nano build-base libxml2-dev libxslt-dev unzip postgresql postgresql-dev libffi-dev libc-dev jpeg-dev zlib-dev
 RUN cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 RUN echo "Europe/Moscow" > /etc/timezone
 RUN apk del tzdata
