@@ -41,7 +41,7 @@ docker run --name sopds -d \
    zveronline/sopds
 ```
 
-Also you can store database on external storage.
+Also you can store postgresql database on external storage.
 
 ```
 docker run --name sopds -d \
