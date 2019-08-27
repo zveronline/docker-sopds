@@ -16,6 +16,7 @@ fi
 
 if [[ $EXT_DB == False && ! -f /var/lib/pgsql/data/PG_VERSION ]] 
 then
+chown -R postgres:postgres /var/lib/pgsql
 su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data initdb"
 su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data -l /var/lib/pgsql/data/pg.log start"
 waiting_db
