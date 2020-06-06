@@ -17,7 +17,7 @@ RUN apk add --no-cache -U tzdata bash nano build-base libxml2-dev libxslt-dev un
 RUN cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 RUN echo "Europe/Moscow" > /etc/timezone
 RUN apk del tzdata
-ADD http://www.sopds.ru/images/archives/sopds-v0.47.zip /sopds.zip
+ADD https://github.com/mitshel/sopds/archive/master.zip /sopds.zip
 RUN unzip sopds.zip && rm sopds.zip && mv sopds-* sopds
 ADD configs/settings.py /sopds/sopds/settings.py
 ADD requirements.txt /sopds/requirements.txt

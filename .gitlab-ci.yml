@@ -6,9 +6,7 @@ build:
   stage: build
   tags:
     - docker
-  image: gitlab/dind
-  services:
-    - docker:dind
+  image: docker:stable
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker build -t $IMAGE_TAG .
