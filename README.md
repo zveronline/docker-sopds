@@ -11,7 +11,7 @@ http://www.sopds.ru
 Pull the latest version of the image from the docker.
 
 ```
-docker pull zveronline/docker-sopds
+docker pull zveronline/sopds
 ```
 
 Alternately you can build the image yourself.
