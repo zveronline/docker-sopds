@@ -13,6 +13,7 @@ ENV DB_USER=sopds \
     SOPDS_SU_NAME="admin" \
     SOPDS_SU_EMAIL="admin@localhost" \
     SOPDS_SU_PASS="admin" \
+    CONV_LOG=/sopds/opds_catalog/log \
     MIGRATE=False \
     VERSION=0.47
 
@@ -34,6 +35,21 @@ RUN apk add --no-cache -U tzdata unzip build-base libxml2-dev libxslt-dev postgr
 && cd /
 WORKDIR /sopds
 ADD configs/settings.py /sopds/sopds/settings.py
+#add fb2c converter for epub and mobi - https://github.com/rupor-github/fb2converter
+ADD https://github.com/rupor-github/fb2converter/releases/latest/download/fb2c-linux32.7z /fb2c-linux32.7z
+RUN apk add --no-cache -U p7zip \
+&& 7z e -o/sopds/convert/fb2c/ /fb2c-linux32.7z \
+&& rm /fb2c-linux32.7z \
+&& apk del p7zip \
+&& pip install toml-cli \
+&& rm -rf /root/.cache/ \
+&& /sopds/convert/fb2c/fb2c export /sopds/convert/fb2c/ \
+&& toml set --toml-path /sopds/convert/fb2c/configuration.toml logger.file.level none
+ADD scripts/fb2conv /sopds/convert/fb2c/fb2conv
+RUN chmod +x /sopds/convert/fb2c/fb2conv \
+&& ln -sT /sopds/convert/fb2c/fb2conv /sopds/convert/fb2c/fb2epub \
+&& ln -sT /sopds/convert/fb2c/fb2conv /sopds/convert/fb2c/fb2mobi
+#
 #add autocreation of the superuser
 RUN apk add --no-cache -U expect
 ADD scripts/superuser.exp /sopds/superuser.exp
