@@ -59,7 +59,7 @@ docker run --name sopds -d \
 
 # Create superuser
 
-By default the superuser will be created with default name "admin" and password "admin". Bu you can change it via appropriate variables:
+By default the superuser will be created with default name "admin" and password "admin". But you can change it via appropriate variables:
 ```bash
 docker run --name sopds -d \
    --volume /path/to/library:/library:ro \
