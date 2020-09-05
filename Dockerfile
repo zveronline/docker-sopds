@@ -16,16 +16,24 @@ ENV DB_USER=sopds \
     MIGRATE=False \
     VERSION=0.47
 
-RUN apk add --no-cache -U tzdata bash nano build-base libxml2-dev libxslt-dev unzip postgresql postgresql-dev libffi-dev libc-dev jpeg-dev zlib-dev
-RUN cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime
-RUN echo "Europe/Moscow" > /etc/timezone
-RUN apk del tzdata
+ADD requirements.txt /requirements.txt
 ADD https://github.com/mitshel/sopds/archive/master.zip /sopds.zip
-RUN unzip sopds.zip && rm sopds.zip && mv sopds-* sopds
-ADD configs/settings.py /sopds/sopds/settings.py
-ADD requirements.txt /sopds/requirements.txt
+RUN apk add --no-cache -U tzdata unzip build-base libxml2-dev libxslt-dev postgresql-dev libffi-dev libc-dev jpeg-dev zlib-dev \
+&& cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
+&& echo "Europe/Moscow" > /etc/timezone \
+&& unzip sopds.zip \
+&& rm sopds.zip \
+&& mv sopds-* sopds \
+&& mv /requirements.txt /sopds/requirements.txt \
+&& cd /sopds \
+&& pip3 install --upgrade pip setuptools psycopg2-binary \
+&& pip3 install --upgrade -r requirements.txt \
+&& apk del tzdata unzip build-base libxml2-dev libxslt-dev postgresql-dev libffi-dev libc-dev jpeg-dev zlib-dev \
+&& apk add --no-cache -U bash libxml2 libxslt libffi libjpeg zlib postgresql \
+&& rm -rf /root/.cache/ \
+&& cd /
 WORKDIR /sopds
-RUN pip3 install --upgrade pip setuptools psycopg2-binary && pip3 install --upgrade -r requirements.txt
+ADD configs/settings.py /sopds/sopds/settings.py
 #add autocreation of the superuser
 RUN apk add --no-cache -U expect
 ADD scripts/superuser.exp /sopds/superuser.exp
