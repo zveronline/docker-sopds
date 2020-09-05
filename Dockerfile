@@ -30,6 +30,7 @@ RUN pip3 install --upgrade pip setuptools psycopg2-binary && pip3 install --upgr
 RUN apk add --no-cache -U expect
 ADD scripts/superuser.exp /sopds/superuser.exp
 #
+
 ADD scripts/start.sh /start.sh
 RUN chmod +x /start.sh
 
