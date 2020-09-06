@@ -11,6 +11,7 @@ ENV DB_USER=sopds \
     SOPDS_INPX_ENABLE=True \
     SOPDS_LANGUAGE=ru-RU \
     MIGRATE=False \
+    CONV_LOG=/sopds/opds_catalog/log \
     VERSION=0.47
 
 ADD requirements.txt /requirements.txt
