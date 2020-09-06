@@ -46,6 +46,10 @@ then
 python3 manage.py sopds_util setconf SOPDS_ROOT_LIB $SOPDS_ROOT_LIB
 python3 manage.py sopds_util setconf SOPDS_INPX_ENABLE $SOPDS_INPX_ENABLE
 python3 manage.py sopds_util setconf SOPDS_LANGUAGE $SOPDS_LANGUAGE
+#configure fb2c converter for epun and mobi - https://github.com/rupor-github/fb2converter
+python3 manage.py sopds_util setconf SOPDS_FB2TOEPUB "convert/fb2c/fb2epub"
+python3 manage.py sopds_util setconf SOPDS_FB2TOMOBI "convert/fb2c/fb2mobi"
+#
 touch /var/lib/pgsql/setconf
 fi
 python3 manage.py sopds_server start & python3 manage.py sopds_scanner start
