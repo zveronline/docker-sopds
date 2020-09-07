@@ -10,6 +10,9 @@ ENV DB_USER=sopds \
     SOPDS_ROOT_LIB="/library" \
     SOPDS_INPX_ENABLE=True \
     SOPDS_LANGUAGE=ru-RU \
+    SOPDS_SU_NAME="admin" \
+    SOPDS_SU_EMAIL="admin@localhost" \
+    SOPDS_SU_PASS="admin" \
     MIGRATE=False \
     VERSION=0.47
 
@@ -31,6 +34,10 @@ RUN apk add --no-cache -U tzdata unzip build-base libxml2-dev libxslt-dev postgr
 && cd /
 WORKDIR /sopds
 ADD configs/settings.py /sopds/sopds/settings.py
+#add autocreation of the superuser
+RUN apk add --no-cache -U expect
+ADD scripts/superuser.exp /sopds/superuser.exp
+#
 ADD scripts/start.sh /start.sh
 RUN chmod +x /start.sh
 

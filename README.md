@@ -59,9 +59,16 @@ docker run --name sopds -d \
 
 # Create superuser
 
+By default the superuser will be created with predefined name "admin" and password "admin". But you can manage it via appropriate environmental variables:
 ```bash
-docker exec -ti sopds bash
-python3 manage.py createsuperuser
+docker run --name sopds -d \
+   --volume /path/to/library:/library:ro \
+   --volume /path/to/database:/var/lib/pgsql \
+   --env 'SOPDS_SU_NAME="your_name_for_superuser"' \
+   --env 'SOPDS_SU_EMAIL='"your_mail_for_superuser@your_domain"' \
+   --env 'SOPDS_SU_PASS="your_password_for_superuser"' \
+   --publish 8081:8001 \
+   zveronline/sopds
 ```
 
 # Scan library
