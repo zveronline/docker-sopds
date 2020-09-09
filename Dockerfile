@@ -19,7 +19,7 @@ ENV DB_USER=sopds \
 
 ADD https://github.com/mitshel/sopds/archive/master.zip /sopds.zip
 ADD requirements.txt /requirements.txt
-ADD configs/settings.py /settings.py /sopds/sopds/settings.py
+ADD configs/settings.py /settings.py 
 ADD scripts/start.sh /start.sh
 #add fb2converter for epub and mobi - https://github.com/rupor-github/fb2converter
 ADD https://github.com/rupor-github/fb2converter/releases/latest/download/fb2c-linux32.7z /fb2c-linux32.7z
