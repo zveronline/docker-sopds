@@ -54,6 +54,8 @@ RUN apk add --no-cache -U tzdata unzip build-base libxml2-dev libxslt-dev postgr
 && rm -rf /root/.cache/ \
 && apk add --no-cache -U bash libxml2 libxslt libffi libjpeg zlib postgresql expect \
 && chmod +x /start.sh \
+&& mkdir -p /sopds/tmp/ \
+&& chmod ugo+w /sopds/tmp/ \
 && cd /
 #
 WORKDIR /sopds
