@@ -13,6 +13,7 @@ ENV DB_USER=sopds \
     SOPDS_SU_NAME="admin" \
     SOPDS_SU_EMAIL="admin@localhost" \
     SOPDS_SU_PASS="admin" \
+    SOPDS_TMBOT_ENABLE=False \
     MIGRATE=False \
     CONV_LOG=/sopds/opds_catalog/log \
     VERSION=0.47
