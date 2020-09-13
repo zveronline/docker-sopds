@@ -55,4 +55,11 @@ fi
 
 touch /var/lib/pgsql/setconf
 fi
+
+#To start the Telegram-bot if it enabled
+if [ $SOPDS_TMBOT_ENABLE == True ]
+then
+python3 manage.py sopds_telebot start --daemon
+fi
+
 python3 manage.py sopds_server start & python3 manage.py sopds_scanner start
