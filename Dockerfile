@@ -39,7 +39,7 @@ RUN apk add --no-cache -U tzdata unzip build-base libxml2-dev libxslt-dev postgr
 && mv /requirements.txt /sopds/requirements.txt \
 && mv /settings.py /sopds/sopds/settings.py \
 && cd /sopds \
-&& pip3 install --upgrade pip setuptools psycopg2-binary \
+&& pip3 install --upgrade pip setuptools 'psycopg2-binary>=2.8,<2.9' \
 && pip3 install --upgrade -r requirements.txt \
 && unzip /fb2c_linux_i386.zip -d /sopds/convert/fb2c/  \
 && rm /fb2c_linux_i386.zip \
