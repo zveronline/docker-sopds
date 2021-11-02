@@ -18,7 +18,7 @@ ENV DB_USER=sopds \
     CONV_LOG=/sopds/opds_catalog/log \
     VERSION=0.47
 
-ADD https://github.com/mitshel/sopds/archive/master.zip /sopds.zip
+ADD https://github.com/iAHTOH/sopds/archive/master.zip /sopds.zip
 ADD requirements.txt /requirements.txt
 ADD configs/settings.py /settings.py 
 ADD scripts/start.sh /start.sh
