@@ -89,6 +89,6 @@ docker run --name sopds -d \
    --volume /path/to/database:/var/lib/pgsql \
    --env 'SOPDS_TMBOT_ENABLE="True"' \
    --publish 8081:8001 \
-   zveronline/sopds
+   iahtoh/sopds
 ```
 Please don't forget to configure the bot itself via interface of SOPDS.
