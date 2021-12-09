@@ -22,10 +22,10 @@ run_path=$(dirname $(realpath ${0}))
 converter="${run_path}/fb2c"
 
 if [ ! -z "${1}" ]; then
-    if  [ -f ${1} ] ; then
+    if  [ -f "${1}" ] ; then
 	if [ ! -z "${2}" ] ; then
 	    tmp_path=$(dirname $(realpath ${2}))
-	    tmp_name=$(basename ${1} | sed s/\.${in_format}$/\.${out_format}/)
+	    tmp_name=$(basename "${1}" | sed s/\.${in_format}$/\.${out_format}/)
 	    if [ -d ${tmp_path} ] ; then
 		if [ -x ${converter} ] ; then
 		    echo "$(date +"%Y-%m-%dT%T.000%z")    INFO    Starting converstion from ${1} to ${2} via ${tmp_path}/${tmp_name}, by ${converter}:" >> ${CONV_LOG}
@@ -36,7 +36,7 @@ if [ ! -z "${1}" ]; then
 		    $converter --config ${run_path}/configuration.toml convert -to ${out_format} "${1}" "${tmp_path}" >> ${CONV_LOG} 
 		    if [ -f "${tmp_path}/${tmp_name}" ]; then
 			echo "$(date +"%Y-%m-%dT%T.000%z")    INFO    Converted temporary file  ${tmp_path}/${tmp_name} is found! Renaming to  ${2} ..." >> ${CONV_LOG}
-			mv -f ${tmp_path}/${tmp_name} ${2}  >> ${CONV_LOG} 2>&1 || exit 1
+			mv -f "${tmp_path}/${tmp_name}" ${2}  >> ${CONV_LOG} 2>&1 || exit 1
 			echo "$(date +"%Y-%m-%dT%T.000%z")    INFO    Done!" >> ${CONV_LOG}
 			exit 0
 		    else
