@@ -160,7 +160,13 @@ CACHE_MIDDLEWARE_KEY_PREFIX = "sopds"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static'
+#STATIC_ROOT = 'static'
+# нечем отдавать статику не хочется в образ встраивать NGINX и пришлось все возложить на django
+#STATIC_ROOT = 'static'
+# вот это работает
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 
