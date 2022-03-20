@@ -5,3 +5,4 @@ apscheduler>=3.3.0
 django-picklefield
 lxml
 python-telegram-bot>=10
+tzlocal==2.1
