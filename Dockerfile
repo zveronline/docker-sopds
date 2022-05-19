@@ -1,5 +1,5 @@
 FROM python:3-alpine
-MAINTAINER zveronline@zveronline.ru
+MAINTAINER admin@iahtoh.ru
 
 ENV DB_USER=sopds \
     DB_NAME=sopds \
