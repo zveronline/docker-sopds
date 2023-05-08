@@ -27,7 +27,7 @@ Run the image
 ```
 docker run --name sopds -d \
    --volume /path/to/library:/library:ro \
-   --publish 8081:8001 \
+   --publish 8001:8001 \
    zveronline/sopds
 ```
 
@@ -37,7 +37,7 @@ This will start the sopds server and you should now be able to browse the conten
 docker run --name sopds -d \
    --volume /path/to/library:/library:ro \
    --volume /path/to/database:/var/lib/pgsql \
-   --publish 8081:8001 \
+   --publish 8001:8001 \
    zveronline/sopds
 ```
 
@@ -52,7 +52,7 @@ docker run --name sopds -d \
    --env 'DB_HOST=""' \
    --env 'DB_PORT=""' \
    --env 'EXT_DB=True' \
-   --publish 8081:8001 \
+   --publish 8001:8001 \
    zveronline/sopds
 ```
 
