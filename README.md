@@ -67,7 +67,7 @@ docker run --name sopds -d \
    --env 'SOPDS_SU_NAME="your_name_for_superuser"' \
    --env 'SOPDS_SU_EMAIL='"your_mail_for_superuser@your_domain"' \
    --env 'SOPDS_SU_PASS="your_password_for_superuser"' \
-   --publish 8081:8001 \
+   --publish 8001:8001 \
    zveronline/sopds
 ```
 
@@ -86,7 +86,7 @@ docker run --name sopds -d \
    --volume /path/to/library:/library:ro \
    --volume /path/to/database:/var/lib/pgsql \
    --env 'SOPDS_TMBOT_ENABLE="True"' \
-   --publish 8081:8001 \
+   --publish 8001:8001 \
    zveronline/sopds
 ```
 Please don't forget to configure the bot itself via interface of SOPDS.
