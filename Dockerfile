@@ -1,5 +1,5 @@
 FROM python:3-alpine
-MAINTAINER zveronline@zveronline.ru
+MAINTAINER mail@zveronline.ru
 
 ENV DB_USER=sopds \
     DB_NAME=sopds \
@@ -18,16 +18,16 @@ ENV DB_USER=sopds \
     CONV_LOG=/sopds/opds_catalog/log \
     VERSION=0.47
 
-ADD https://github.com/mitshel/sopds/archive/master.zip /sopds.zip
+ADD https://github.com/zveronline/sopds/archive/refs/heads/master.zip /sopds.zip
 ADD requirements.txt /requirements.txt
-ADD configs/settings.py /settings.py 
+ADD configs/settings.py /settings.py
 ADD scripts/start.sh /start.sh
 #add fb2converter for epub and mobi - https://github.com/rupor-github/fb2converter
 ADD https://github.com/rupor-github/fb2converter/releases/latest/download/fb2c_linux_i386.zip /fb2c_linux_i386.zip
 ADD scripts/fb2conv /fb2conv
 #
 #add autocreation of the superuser
-ADD scripts/superuser.exp /superuser.exp 
+ADD scripts/superuser.exp /superuser.exp
 #
 #incorporate all apk installation, compilation and execution of command in one branch
 RUN apk add --no-cache -U tzdata unzip build-base libxml2-dev libxslt-dev postgresql-dev libffi-dev libc-dev jpeg-dev zlib-dev \
