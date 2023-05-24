@@ -16,9 +16,9 @@ ENV DB_USER=sopds \
     SOPDS_TMBOT_ENABLE=False \
     MIGRATE=False \
     CONV_LOG=/sopds/opds_catalog/log \
-    VERSION=0.47
+    VERSION=0.47-devel
 
-ADD https://github.com/zveronline/sopds/archive/refs/heads/master.zip /sopds.zip
+ADD https://github.com/mitshel/sopds/archive/refs/heads/master.zip /sopds.zip
 ADD requirements.txt /requirements.txt
 ADD configs/settings.py /settings.py
 ADD scripts/start.sh /start.sh
