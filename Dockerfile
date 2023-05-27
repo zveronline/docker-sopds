@@ -8,7 +8,7 @@ ARG FB2C_I386=https://github.com/rupor-github/fb2converter/releases/latest/downl
 ARG FB2C_ARM64=https://github.com/rupor-github/fb2converter/releases/latest/download/fb2c_linux_arm64.zip
 
 COPY requirements.txt .
-COPY configs/settings.py .
+COPY configs/settings.py ./sopds
 COPY scripts/fb2conv /fb2conv
 COPY scripts/superuser.exp .
 
