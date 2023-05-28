@@ -16,6 +16,7 @@ RUN apk add --no-cache -U tzdata unzip build-base libxml2-dev libxslt-dev postgr
     && cp /usr/share/zoneinfo/Asia/Yekaterinburg /etc/localtime \
     && echo "Asia/Yekaterinburg" > /etc/timezone \
     && unzip /sopds.zip && rm /sopds.zip && mv sopds-*/* ./ \
+    && mv settings.py ./sopds/settings.py
     && pip3 install --upgrade pip setuptools 'psycopg2-binary>=2.8,<2.9' \
     && pip3 install --upgrade -r requirements.txt \
     && if [ $(uname -m) = "aarch64" ]; then \
