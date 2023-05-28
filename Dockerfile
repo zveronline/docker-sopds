@@ -44,6 +44,7 @@ ENV DB_USER="sopds" \
     DB_HOST="" \
     DB_PORT="" \
     EXT_DB="False" \
+    TIME_ZONE="Asia/Yekaterinburg" \
     SOPDS_ROOT_LIB="/library" \
     SOPDS_INPX_ENABLE="True" \
     SOPDS_LANGUAGE="ru-RU" \
