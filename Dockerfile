@@ -6,7 +6,6 @@ WORKDIR /sopds
 ADD https://github.com/mitshel/sopds/archive/refs/heads/master.zip /sopds.zip
 ARG FB2C_I386=https://github.com/rupor-github/fb2converter/releases/latest/download/fb2c_linux_i386.zip
 ARG FB2C_ARM64=https://github.com/rupor-github/fb2converter/releases/latest/download/fb2c_linux_arm64.zip
-ARG TIME_ZONE=Europe/Moscow
 
 COPY requirements.txt .
 COPY configs/settings.py .
@@ -46,7 +45,7 @@ ENV DB_USER="sopds" \
     DB_HOST="" \
     DB_PORT="" \
     EXT_DB="False" \
-    TIME_ZONE=$TIME_ZONE \
+    TIME_ZONE="Europe/Moscow" \
     SOPDS_ROOT_LIB="/library" \
     SOPDS_INPX_ENABLE="True" \
     SOPDS_LANGUAGE="ru-RU" \
