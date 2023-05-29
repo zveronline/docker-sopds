@@ -4,7 +4,7 @@ LABEL maintainer="mail@zveronline.ru"
 WORKDIR /sopds
 
 ADD https://github.com/mitshel/sopds/archive/refs/heads/master.zip /sopds.zip
-RUN apk add --no-cache unzip \
+RUN apk add --no-cache -U unzip \
     && unzip /sopds.zip && rm /sopds.zip && mv sopds-master /sopds
 
 ARG FB2C_I386=https://github.com/rupor-github/fb2converter/releases/latest/download/fb2c_linux_i386.zip
@@ -25,7 +25,8 @@ RUN apk add --no-cache -U tzdata build-base libxml2-dev libxslt-dev postgresql-d
     else \
         curl -L -o /fb2c_linux.zip ${FB2C_I386}; \
     fi \
-    && unzip /fb2c_linux.zip -d /sopds/convert/fb2c/&& rm /fb2c_linux.zip \
+    && unzip /fb2c_linux.zip -d /sopds/convert/fb2c/ \
+    && rm /fb2c_linux.zip \
     && pip install toml-cli \
     && /sopds/convert/fb2c/fb2c export /sopds/convert/fb2c/ \
     && toml set --toml-path /sopds/convert/fb2c/configuration.toml logger.file.level none \
