@@ -15,7 +15,7 @@ COPY scripts/superuser.exp .
 RUN apk add --no-cache -U tzdata unzip build-base libxml2-dev libxslt-dev postgresql-dev libffi-dev libc-dev jpeg-dev zlib-dev curl \
     && cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
     && echo "Europe/Moscow" > /etc/timezone \
-    && unzip /sopds.zip && rm /sopds.zip && mv sopds-*/* ./ \
+    && unzip /sopds.zip && rm /sopds.zip && mv sopds-master /sopds \
     && pip3 install --upgrade pip setuptools 'psycopg2-binary>=2.8,<2.9' \
     && pip3 install --upgrade -r requirements.txt \
     && if [ $(uname -m) = "aarch64" ]; then \
