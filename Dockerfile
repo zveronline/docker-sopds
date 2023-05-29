@@ -4,9 +4,6 @@ LABEL maintainer="mail@zveronline.ru"
 WORKDIR /sopds
 
 ADD https://github.com/mitshel/sopds/archive/refs/heads/master.zip /sopds.zip
-RUN apk add --no-cache -U unzip \
-    && unzip /sopds.zip && rm /sopds.zip && mv sopds-master /sopds
-
 ARG FB2C_I386=https://github.com/rupor-github/fb2converter/releases/latest/download/fb2c_linux_i386.zip
 ARG FB2C_ARM64=https://github.com/rupor-github/fb2converter/releases/latest/download/fb2c_linux_arm64.zip
 
@@ -15,9 +12,11 @@ COPY configs/settings.py ./sopds
 COPY scripts/fb2conv /fb2conv
 COPY scripts/superuser.exp .
 
-RUN apk add --no-cache -U tzdata build-base libxml2-dev libxslt-dev postgresql-dev libffi-dev libc-dev jpeg-dev zlib-dev curl \
+RUN apk add --no-cache -U tzdata build-base unzip libxml2-dev libxslt-dev postgresql-dev libffi-dev libc-dev jpeg-dev zlib-dev curl \
     && cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
     && echo "Europe/Moscow" > /etc/timezone \
+    && unzip /sopds.zip && rm /sopds.zip && mv sopds-*/* ./ \
+    && mv settings.py ./sopds/settings.py \
     && pip3 install --upgrade pip setuptools 'psycopg2-binary>=2.8,<2.9' \
     && pip3 install --upgrade -r requirements.txt \
     && if [ $(uname -m) = "aarch64" ]; then \
@@ -46,6 +45,7 @@ ENV DB_USER="sopds" \
     DB_HOST="" \
     DB_PORT="" \
     EXT_DB="False" \
+    TIME_ZONE="Europe/Moscow" \
     SOPDS_ROOT_LIB="/library" \
     SOPDS_INPX_ENABLE="True" \
     SOPDS_LANGUAGE="ru-RU" \
