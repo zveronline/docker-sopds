@@ -4,5 +4,5 @@ apscheduler>=3.3.0
 #django-constance[database]>=2.1
 django-picklefield
 lxml
-python-telegram-bot>=10
+python-telegram-bot>=10,<=13.11
 tzlocal==2.1
