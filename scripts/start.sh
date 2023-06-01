@@ -14,9 +14,10 @@ mkdir -p /run/postgresql
 chown -R postgres:postgres /run/postgresql
 fi
 
-if [[ $EXT_DB == False && ! -f /var/lib/pgsql/data/PG_VERSION ]] 
+if [[ $EXT_DB == False && ! -f /var/lib/pgsql/data/PG_VERSION ]]
 then
 chown -R postgres:postgres /var/lib/pgsql
+chmod -R 0700 /var/lib/pgsql
 su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data initdb"
 su postgres -c "/usr/bin/pg_ctl -D /var/lib/pgsql/data -l /var/lib/pgsql/data/pg.log start"
 waiting_db
