@@ -56,7 +56,39 @@ docker run --name sopds -d \
    --env 'EXT_DB=True' \
    --publish 8081:8001 \
    iahtoh/sopds
+
 ```
+Also compose yml.
+
+```
+ sopds:
+            image: iahtoh/sopds:latest
+            container_name: sopds
+            environment:
+                - EXT_DB=True
+                - DB_HOST=IP_DB_HOST
+                - DB_PORT=5432
+                - DB_NAME=sopds
+                - DB_USER=sopds
+                - DB_PASS=Password
+                - SOPDS_SU_EMAIL=k.ahtoh@gmail.com
+                - SOPDS_SU_NAME=Admin_User
+                - SOPDS_SU_PASS=Password
+                - SOPDS_ROOT_LIB=/library
+                - SOPDS_INPX_ENABLE=True
+                - SOPDS_LANGUAGE=ru-RU
+                # Влючение Тлеграмм Бота
+                - SOPDS_TMBOT_ENABLE=False
+                - CONV_LOG=/sopds/opds_catalog/log
+            volumes:
+                - /you path to library/e-Book:/library  
+                - /docker/sopds/log:/sopds/opds_catalog/log
+            ports:
+                - 8199:8001
+            restart: always   
+            depends_on:
+                - pgadmin
+...                
 
 
 # Create superuser
