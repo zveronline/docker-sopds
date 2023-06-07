@@ -88,7 +88,7 @@ Also compose yml.
             restart: always   
             depends_on:
                 - pgadmin
-...                
+```             
 
 
 # Create superuser
