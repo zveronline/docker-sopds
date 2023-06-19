@@ -29,8 +29,10 @@ Run the image
 ```
 docker run --name sopds -d \
    --volume /path/to/library:/library:ro \
+
    --publish 8081:8001 \
    iahtoh/sopds
+
 ```
 
 This will start the sopds server and you should now be able to browse the content on port 8081.
@@ -39,8 +41,10 @@ This will start the sopds server and you should now be able to browse the conten
 docker run --name sopds -d \
    --volume /path/to/library:/library:ro \
    --volume /path/to/database:/var/lib/pgsql \
+
    --publish 8081:8001 \
    iahtoh/sopds
+
 ```
 
 Also you can store postgresql database on external storage.
@@ -54,11 +58,13 @@ docker run --name sopds -d \
    --env 'DB_HOST=""' \
    --env 'DB_PORT=""' \
    --env 'EXT_DB=True' \
+
    --publish 8081:8001 \
    iahtoh/sopds
 
 ```
 Also compose yml.
+
 
 ```
  sopds:
@@ -101,9 +107,10 @@ docker run --name sopds -d \
    --env 'SOPDS_SU_NAME="your_name_for_superuser"' \
    --env 'SOPDS_SU_EMAIL='"your_mail_for_superuser@your_domain"' \
    --env 'SOPDS_SU_PASS="your_password_for_superuser"' \
+
    --publish 8081:8001 \
    iahtoh/sopds
-```
+
 
 # Scan library
 
@@ -120,7 +127,6 @@ docker run --name sopds -d \
    --volume /path/to/library:/library:ro \
    --volume /path/to/database:/var/lib/pgsql \
    --env 'SOPDS_TMBOT_ENABLE="True"' \
-   --publish 8081:8001 \
-   iahtoh/sopds
+
 ```
 Please don't forget to configure the bot itself via interface of SOPDS.
