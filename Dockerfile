@@ -4,7 +4,7 @@ LABEL maintainer="mail@zveronline.ru"
 WORKDIR /sopds
 
 ADD https://github.com/mitshel/sopds/archive/refs/heads/master.zip /sopds.zip
-ARG FB2C_I386=https://github.com/rupor-github/fb2converter/releases/latest/download/fb2c_linux_i386.zip
+ARG FB2C_I386=https://github.com/rupor-github/fb2converter/releases/latest/download/fb2c-linux-386.zip
 ARG FB2C_ARM64=https://github.com/rupor-github/fb2converter/releases/latest/download/fb2c_linux_arm64.zip
 
 RUN apk add --no-cache -U unzip \
