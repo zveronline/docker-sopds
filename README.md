@@ -77,15 +77,6 @@ docker run --name sopds -d \
 docker exec -ti sopds bash
 python3 manage.py sopds_util setconf SOPDS_SCAN_START_DIRECTLY True
 ```
-
-# Autostart of the SOPDS Telegram-bot
-
-By default the Telegram-bot isn't enabled. But you can configure it to be started with container start at any time.
-```bash
-docker run --name sopds -d \
-   --volume /path/to/library:/library:ro \
-   --volume /path/to/database:/var/lib/pgsql \
-   --env 'SOPDS_TMBOT_ENABLE="True"' \
    --publish 8001:8001 \
    zveronline/sopds
 ```
