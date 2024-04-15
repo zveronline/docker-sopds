@@ -77,7 +77,4 @@ docker run --name sopds -d \
 docker exec -ti sopds bash
 python3 manage.py sopds_util setconf SOPDS_SCAN_START_DIRECTLY True
 ```
-   --publish 8001:8001 \
-   zveronline/sopds
-```
-Please don't forget to configure the bot itself via interface of SOPDS.
+
