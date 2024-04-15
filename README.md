@@ -1,4 +1,4 @@
-https://github.com/mitshel/sopds.git
+https://github.com/ichbinkirgiz/sopds
 
 
 # Introduction
@@ -80,7 +80,7 @@ python3 manage.py sopds_util setconf SOPDS_SCAN_START_DIRECTLY True
 
 # Autostart of the SOPDS Telegram-bot
 
-By default the Telegram-bot isn't enabled. But you can configure it to be started with container start at any time. 
+By default the Telegram-bot isn't enabled. But you can configure it to be started with container start at any time.
 ```bash
 docker run --name sopds -d \
    --volume /path/to/library:/library:ro \
