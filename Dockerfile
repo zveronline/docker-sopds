@@ -10,8 +10,8 @@ ARG FB2C_ARM64=https://github.com/rupor-github/fb2converter/releases/download/v1
 RUN apk add --no-cache -U unzip \
     && unzip /sopds.zip && rm /sopds.zip && mv sopds-*/* ./
 
-COPY requirements.txt .
-COPY configs/settings.py ./sopds
+#COPY requirements.txt .
+#COPY configs/settings.py ./sopds
 COPY scripts/fb2conv /fb2conv
 COPY scripts/superuser.exp .
 
