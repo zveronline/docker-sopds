@@ -11,13 +11,13 @@ http://www.sopds.ru
 Pull the latest version of the image from the docker.
 
 ```
-docker pull zveronline/sopds
+docker pull ghcr.io/zveronline/sopds
 ```
 
 Alternately you can build the image yourself.
 
 ```
-docker build -t zveronline/sopds https://github.com/zveronline/docker-sopds.git
+docker build -t ghcr.io/zveronline/sopds https://github.com/zveronline/docker-sopds.git
 ```
 
 # Quick Start
@@ -28,7 +28,7 @@ Run the image
 docker run --name sopds -d \
    --volume /path/to/library:/library:ro \
    --publish 8001:8001 \
-   zveronline/sopds
+   ghcr.io/zveronline/sopds
 ```
 
 This will start the sopds server and you should now be able to browse the content on port 8081.
@@ -38,7 +38,7 @@ docker run --name sopds -d \
    --volume /path/to/library:/library:ro \
    --volume /path/to/database:/var/lib/pgsql \
    --publish 8001:8001 \
-   zveronline/sopds
+   ghcr.io/zveronline/sopds
 ```
 
 Also you can store postgresql database on external storage.
@@ -53,7 +53,7 @@ docker run --name sopds -d \
    --env 'DB_PORT=""' \
    --env 'EXT_DB=True' \
    --publish 8001:8001 \
-   zveronline/sopds
+   ghcr.io/zveronline/sopds
 ```
 
 
@@ -68,7 +68,7 @@ docker run --name sopds -d \
    --env 'SOPDS_SU_EMAIL='"your_mail_for_superuser@your_domain"' \
    --env 'SOPDS_SU_PASS="your_password_for_superuser"' \
    --publish 8001:8001 \
-   zveronline/sopds
+   ghcr.io/zveronline/sopds
 ```
 
 # Scan library
@@ -77,4 +77,3 @@ docker run --name sopds -d \
 docker exec -ti sopds bash
 python3 manage.py sopds_util setconf SOPDS_SCAN_START_DIRECTLY True
 ```
-
