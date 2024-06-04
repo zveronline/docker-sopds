@@ -45,6 +45,7 @@ jobs:
           context: .
           platforms: |
             linux/amd64
+            linux/arm/v7
             linux/arm64
           file: ./Dockerfile
 #          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:latest
