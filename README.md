@@ -77,3 +77,8 @@ docker run --name sopds -d \
 docker exec -ti sopds bash
 python3 manage.py sopds_util setconf SOPDS_SCAN_START_DIRECTLY True
 ```
+
+# Telegram bot autostart
+
+To do this you need to use a variable:
+SOPDS_TMBOT_ENABLE=True
